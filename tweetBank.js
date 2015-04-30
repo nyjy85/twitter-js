@@ -3,20 +3,25 @@ var _ = require('underscore');
 var data = [];
 var id = 0;
 
+
+// adds new tweets and names to data
 var add = function(name, text){//, cb) {
 	data.push({name: name, text: text, id: id++});
 	return data[data.length-1]
 	// return cb(false, data[data.length - 1]);
 };
 
+// lists out all the names and tweets from data
 var list = function() {
 	return _.clone(data);
 };
 
+// finds the tweet of the property being passed in
 var find = function(properties) {
-	return _.where(data, properties);
+	return _.where(data, properties); 
 };
 
+// exports all these functions in object form so that index.js can use it
 module.exports = { add: add, list: list, find: find};
 
 

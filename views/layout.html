@@ -87,7 +87,9 @@
   var socket = io.connect();
 
   // When 'new_tweet' events are fired, do something with the packaged tweet
+  // this is the listener
   socket.on('new_tweet', function (tweet) { 
+    // console.logs to the other persons page
     console.log(tweet);
 
     var newhtml = "<li class='clearfix'>";
@@ -97,6 +99,7 @@
     	newhtml+="<p id='"+tweet.id+"'>"+tweet.text+"</p>";
     	newhtml+="<a href='#''>Re-Tweet</a></div></li>";
 
+      // a way to append more html without replacing the current html in the `tweets` div
     	document.getElementById('tweets').innerHTML += newhtml;
 
     // some logic to add the new tweet to the DOM…
